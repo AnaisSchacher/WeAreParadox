@@ -1,1 +1,5 @@
-new.html.erb
+<%= simple_form_for @post do |p| %>
+  <%= f.input :title %>
+  <%= f.input :password %>
+  <%= f.button :submit %>
+<% end %>

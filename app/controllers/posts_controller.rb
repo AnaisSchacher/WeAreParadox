@@ -11,7 +11,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @user = current_user
+    if @user.admin
+      @post = Post.new
+    else
+      redirect_to posts_path
+    end
   end
 
   def create

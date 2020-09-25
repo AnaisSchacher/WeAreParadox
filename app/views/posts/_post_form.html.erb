@@ -1,0 +1,9 @@
+
+<%= simple_form_for @post do |p| %>
+  <%= p.input :title, label: "Titre du post" %>
+  <%= p.input :video_id, label: "ID de la vidéo" %>
+  <%= p.input :category, label: "Catégorie", as: :radio_buttons, collection: ["Report", "Interview", "Vlog", "Other"] %>
+  <%= p.button :submit, "Valider" %>
+<% end %>
+
+<%= link_to "Annuler", posts_path  %>

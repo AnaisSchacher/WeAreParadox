@@ -3,16 +3,17 @@ class PostsController < ApplicationController
 
 
   def index
+    @user = current_user
     @posts = Post.all
   end
 
   def show
-
+    @user = current_user
   end
 
   def new
     @user = current_user
-    if @user.admin
+    if @user && @user.admin
       @post = Post.new
     else
       redirect_to posts_path
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @user = current_user
 
   end
 
@@ -39,13 +41,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @user = current_user
+    if @user.admin
+      @post.destroy
+      redirect_to posts_path
+    end
   end
 
   private
 
     def post_params
-      params.require(:post).permit(:user_id, :title, :url, :category)
+      params.require(:post).permit(:user_id, :title, :video_id, :category)
     end
 
     def set_post

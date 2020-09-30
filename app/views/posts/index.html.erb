@@ -1,15 +1,15 @@
-<div class="page-container">
+<div class="posts-container">
   <% @posts.each do |post| %>
   <div class="post-card">
-    <%= post.title %>
-    <%= post.category %>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video_id %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  </div>
-  <%= link_to "Voir", post_path(post)  %>
-  <% if @user && @user.admin %>
+    <iframe class="embed-video" src="https://www.youtube.com/embed/<%= post.video_id %>?start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
+<!--   <%= link_to "Voir", post_path(post)  %>
+ -->  <% if @user && @user.admin %>
     <%= link_to "Modifier", edit_post_path(post) %>
     <%= link_to "Supprimer", post_path(post), method: :delete, data: { confirm: "Êtes vous sûrs ?"}   %>
   <% end %>
   <% end %>
 </div>
 
-TEST
+
+

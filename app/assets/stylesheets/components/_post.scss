@@ -1,0 +1,23 @@
+.posts-container {
+  display: flex;
+}
+
+.embed-video {
+    width: 100%!important;
+    height: 100%!important ;
+}
+
+.post-card {
+    width: 400px;
+    height: 225px;
+    margin: 20px;
+}
+
+.post-card:hover {
+    width: 470px;
+    height: 275px;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+
+
+}

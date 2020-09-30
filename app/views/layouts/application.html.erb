@@ -12,16 +12,18 @@
   </head>
 
   <body>
-
-  <div class="navbar">
-    <% if user_signed_in? %>
-      <%= link_to "Nouveau post", new_post_path %>
-      <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete  %>
-    <% else %>
-      <%= link_to "Connexion", new_user_session_path  %>
+    <% unless current_page?(root_path) %>
+      <div class="main-container">
+        <div class="navbar">
+         <% if user_signed_in? %>
+            <%= link_to "Nouveau post", new_post_path %>
+            <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete  %>
+          <% else %>
+            <%= link_to "Connexion", new_user_session_path  %>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
     <% end %>
-
-  </div>
-    <%= yield %>
   </body>
 </html>
